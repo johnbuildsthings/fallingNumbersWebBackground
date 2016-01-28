@@ -18,6 +18,7 @@ var randCoor = function(){
   }
 }
 
+// initializes the container div and returns a handle to it
 var initializeCol = function(coord){
   var newDiv = $('<div style="position:static;"></div>');
   $('body').append(newDiv);
@@ -46,18 +47,20 @@ var printer = function(coord, divHandle){
   }
 }
 
+// repetivitly removes the most oldest number from the column untill all numbers are removed
 var removeCol = function(column){
   var children = column.children();
-  console.log(column[0].childNodes);
   if(column[0].childNodes.length > 0){
     var child = column[0].firstChild;
     child.remove();
     return setTimeout(removeCol.bind(null, column), 200);
   }else{
+    column.remove();
     return true
   }
 }
 
+// handles all the new column setup
 var newCol = function(){
   var column = new randCoor();
   var div = initializeCol(column);
