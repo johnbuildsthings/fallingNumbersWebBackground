@@ -1,5 +1,14 @@
 body{
   background-color: black;
   color: #0E920A;
-  /*position: absolute;*/
+}
+
+.main{
+  width: 85%;
+  background-color: black;
+  opacity: 1;
+  margin: auto auto;
+  padding: 20px;
+  border:1px solid #0E920A;
+  /*z-index: 100;*/
 }

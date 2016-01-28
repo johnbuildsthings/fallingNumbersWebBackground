@@ -21,7 +21,7 @@ var randCoor = function(){
 // initializes the container div and returns a handle to it
 var initializeCol = function(coord){
   var newDiv = $('<div style="position:static;"></div>');
-  $('body').append(newDiv);
+  $('body').prepend(newDiv);
   return newDiv;
 }
 
@@ -33,7 +33,7 @@ var randNum = function(){
 // prints random number and adjusts the y value of the coordiate object
 var printer = function(coord, divHandle){
   var num = randNum();
-  divHandle.append('<div style="position:absolute; top:'+coord.y+'px; left:'+coord.x+'px;">'+num+'</div>');
+  divHandle.append('<div style="position:absolute; z-index:-1; top:'+coord.y+'px; left:'+coord.x+'px;">'+num+'</div>');
   coord.y = coord.y + 16;
 
   if(coord.handler !== null && coord.y > 668){
