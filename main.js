@@ -10,11 +10,13 @@ var randCoor = function(){
   var y = Math.floor(Math.random()*height-18);
   // var y = 0;
   var x = Math.floor(Math.random()*width-10);
-  
+  var shadow = Math.floor(Math.random()*10)+10;
+
   return {
     x: x,
     y: y,
-    handler: null
+    handler: null,
+    shadow: shadow
   }
 }
 
@@ -33,7 +35,7 @@ var randNum = function(){
 // prints random number and adjusts the y value of the coordiate object
 var printer = function(coord, divHandle){
   var num = randNum();
-  divHandle.append('<div style="position:absolute; z-index:-1; top:'+coord.y+'px; left:'+coord.x+'px;">'+num+'</div>');
+  divHandle.append('<div style="position:absolute; z-index:-1; top:'+coord.y+'px; left:'+coord.x+'px; text-shadow: 4px 4px '+coord.shadow+'px #0E920A;">'+num+'</div>');
   coord.y = coord.y + 16;
 
   if(coord.handler !== null && coord.y > 668){
